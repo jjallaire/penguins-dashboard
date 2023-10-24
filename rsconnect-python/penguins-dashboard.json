@@ -1,0 +1,12 @@
+{
+    "https://api.shinyapps.io": {
+        "server_url": "https://api.shinyapps.io",
+        "filename": "/Users/jjallaire/quarto/dashboard-examples/penguins-dashboard",
+        "app_url": "https://jjallaire.shinyapps.io/penguins-dashboard/",
+        "app_id": 10298001,
+        "app_guid": null,
+        "title": "penguins-dashboard",
+        "app_mode": "python-shiny",
+        "app_store_version": 1
+    }
+}
