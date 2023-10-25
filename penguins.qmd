@@ -1,32 +1,29 @@
----
+--- 
 title: "Palmer Penguins"
 author: "Cobblepot Analytics"
-format:
-  dashboard:
-    orientation: columns 
+format: dashboard
 server: shiny
 ---
 
 ```{python}
 #| context: setup
 import seaborn as sns
+from shiny import render, reactive, ui
 penguins = sns.load_dataset("penguins")
-species = list(penguins["species"].value_counts().index)
-islands = list(penguins["island"].value_counts().index)
 ```
 
-## Column {.sidebar}
+# {.sidebar}
 
 ![](images/penguins.png){width="80%"}
 
 ```{python}
-from shiny import render, reactive, ui
-
+species = list(penguins["species"].value_counts().index)
 ui.input_checkbox_group(
     "species", "Species:", 
     species, selected = species
 )
 
+islands = list(penguins["island"].value_counts().index)
 ui.input_checkbox_group(
     "islands", "Islands:", 
     islands, selected = islands
@@ -47,9 +44,7 @@ ui.input_checkbox("rug", "Show rug marks", value = False)
 [Learn more](https://pypi.org/project/palmerpenguins/) about the 
 Palmer Penguins dataset.
 
-## Column {.tabset}
-
-### Plots
+# Plots
 
 ```{python}
 @render.plot
@@ -59,7 +54,7 @@ def depth():
         hue = "species", kind = input.dist(), 
         fill = True, rug=input.rug()
     )
-```
+``` 
 
 ```{python}
 @render.plot
@@ -69,12 +64,13 @@ def length():
         hue = "species", kind = input.dist(), 
         fill = True, rug=input.rug()
     )
-```
+``` 
 
-### Data
+# Data
 
-```{python}
+```{python} 
 @render.data_frame
 def dataview():
-    return render.DataGrid(filtered_penguins(), height = "100%")
-```
+    return render.DataGrid(filtered_penguins(), height="100%")
+``` 
+
