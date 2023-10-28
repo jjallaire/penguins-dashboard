@@ -1,7 +1,9 @@
 --- 
 title: "Palmer Penguins"
 author: "Cobblepot Analytics"
-format: dashboard
+format: 
+  dashboard:
+    theme: morph
 server: shiny
 ---
 
