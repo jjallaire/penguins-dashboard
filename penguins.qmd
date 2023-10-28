@@ -48,6 +48,26 @@ Palmer Penguins dataset.
 
 # Plots
 
+## Row {.flow}
+
+```{python}
+#| component: valuebox
+#| title: "Value add"
+dict(
+    value = 42
+)
+```
+
+```{python}
+import shiny.experimental as x
+@render.ui
+def more_value():
+    value = 84 if input.rug() else 42
+    return x.ui.value_box("More value", value)
+```
+
+## Row
+
 ```{python}
 @render.plot
 def depth():
@@ -57,6 +77,8 @@ def depth():
         fill = True, rug=input.rug()
     )
 ``` 
+
+## Row
 
 ```{python}
 @render.plot
