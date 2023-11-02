@@ -4,6 +4,7 @@ author: "Cobblepot Analytics"
 format: 
   dashboard:
     theme: morph
+    nav-buttons: [github]
 server: shiny
 ---
 
